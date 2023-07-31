@@ -10,16 +10,14 @@ app.get("/:lastName", (req, res) => {
 
     // aqui ahora tienes que usar la funcion searchLastName() pasarle el apellido y la respuesta devolverla en el res.send()
     
-    searchLastName(req.params.lastName);
+    searchLastName(req.params.lastName);  
+    
+    res.send("Bienvenido")
 
     
-
-
-    
-
-    // devuelve datos al postman
-    res.send("Error");
 })
+
+
 
 
 app.listen(port, () => {
