@@ -1,11 +1,10 @@
-const validation = (req,res,next) => {
-if(typeof req.params.lastname === "number") {
-    return res.send("Error")
-
-    
-}
-next()
-
+function validation(req,res,next) {
+    if(req.params.lastName = Number) {
+        return "Error";
+    } else {
+        return "Bienvenido";
+    }
+    next()
 }
         
   
