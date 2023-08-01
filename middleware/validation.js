@@ -1,13 +1,21 @@
-function validation(req,res,next) {
-    if(typeof req.params.lastName === Number)  {
-        return "Error";
-    } else {
-        return "Bienvenido";
-    }
-    next()
+const validation = (req,res,next) => {
+if(typeof req.params.lastname === "number") {
+    return res.send("Error")
 
-    console.log(req.params.lastName)
+    
 }
+next()
+
+}
+        
+  
+    
+    
+    
+    
+
+    
+
     
 
 

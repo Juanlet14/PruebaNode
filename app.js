@@ -4,15 +4,35 @@ const port = 3000;
 const  searchLastName  = require("./data/alumns");
 const validation = require("./middleware/validation");
 
-app.get("/:lastName", (req, res) => {
+app.get("/:lastName",validation, (req, res) => {
     // recive datos del postman
-    console.log(req.params.lastName);
+    //console.log(req.params.lastName);
 
     // aqui ahora tienes que usar la funcion searchLastName() pasarle el apellido y la respuesta devolverla en el res.send()
+
+
+    searchLastName(req.params.lastName);
     
-    searchLastName(req.params.lastName);  
+   
+    if(req.params.lastName === "number") {
+        return res.status(401).send("Error")
+    }else{
+        res.status(200).send("Hola cliente")
+    }
+
     
-    res.send("Bienvenido")
+    
+    
+    //searchLastName(req.params.lastName);  
+
+    
+
+   
+    
+    //res.send("Bienvenido")
+
+   
+
 
     
 })
