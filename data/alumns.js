@@ -1,3 +1,7 @@
+/**
+ * ARRAY CON ERRORES
+ */
+
 // const alumnosArr = [
 //     alumno = {
 //         name:"Juan",
@@ -12,6 +16,11 @@
 //     },
 // ]
 
+
+/**
+ * ARRAY OK: no debes asignar el objeto a ninguna variable, si haces eso, deja de ser dinamico, la idea es tener
+ * un array de objetos para poder recorrerlo y buscar en tu interior de forma dinamica
+ */
 const alumnosArr = [
     {
         name: "Juan",
@@ -26,15 +35,30 @@ const alumnosArr = [
 ]
 
 function searchLastName(lastName) {
-    let alumno = alumnosArr.find(function (surname) {
-        return surname.lastName === lastName;
+    /**
+     * esto funciona pero hay una manera mas corta de hacerlo
+     */
 
-    });
-    // buscar en google como hacer un busqueda dentro de un array (alumnosArr) por un parametro en concreto
-    
-    // SI HAS BUSCADO ESTO, BUSCA AHORA COMO HACER UN FILTER EN LA URL QUE TE PONGO AQUI ABAJO:
-    // https://masteringjs.io/tutorials/fundamentals/filter-array-of-objects
+    // let alumno = alumnosArr.find(function (surname) {
+    //     return surname.lastName === lastName;
+    // });
+
+    /**
+     * este codigo de la linea 44 sustituye la funcion por una arrow function y es algo mas corto 
+     * y se ve mejor para comprenderlo.
+     */
+    // let alumno = alumnosArr.find((alumno) => alumno.lastName === lastName);
+
+    /**
+     * y esta la misma pero usando el .filter(), PARA MI ES MEJOR USAR EL FILTER, 
+     * PORQUE EL .FIND() SOLO DEVUELVE LA PRIMERA COINCIDENCIA QUE ENCUENTRE
+     * PERO EL .FILTER() TE DEVUELVE UN ARRAY CON TODAS LAS COINCIDENCIAS,
+     * ES DECIR; SI TIENES DOS USUARIOS CON EL MISMO APELLIDO, EL FILTER TE DEVUELVE AMBOS Y EL
+     * FIND SOLO EL PRIMERO QUE ENCUENTRE
+     */
+    let alumno = alumnosArr.filter((alumno) => alumno.lastName === lastName);
     console.log(alumno);
+    return alumno;
 
 }
 
